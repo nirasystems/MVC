@@ -1,0 +1,72 @@
+﻿@model Acr.RScanDashboard.Models.CDSOrganization
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+	<div class="row centered-form">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<div class="panel panel-info">				
+				<div class="panel-heading ">
+					<p class="panel-title text-center">Delete CDS Organization</p>
+					<div class="pull-left" style="text-align:left;margin-top:-26px;">
+						@Html.ActionLink("Back to List", "Index" ,"CDSSites", new { @class = "btn btn-md btn-default pull-right" })
+					</div>					
+				</div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        <p class="panel-title text-center"><small><i><b><font color="red">Are you sure you want to delete the site which includes related groups?</font></b></i></small></p><br>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-6" align="right">
+                                    <b>@Html.DisplayName("OrganizationID (NRDR)")</b>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DisplayFor(model => model.OrganizationID)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" align="right">
+                                    <b>@Html.DisplayNameFor(model => model.Organization)</b>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DisplayFor(model => model.Organization)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" align="right">
+                                    <b>@Html.DisplayName("Created")</b>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DisplayFor(model => model.CreatedDate)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6" align="right">
+                                    <b>@Html.DisplayName("Updated")</b>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DisplayFor(model => model.ModifiedDate)
+                                </div>
+                            </div>
+                            <hr />
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <div class="col-md-offset-6 col-md-12">
+                                        <input type="submit" value="Delete" class="btn btn-danger" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
